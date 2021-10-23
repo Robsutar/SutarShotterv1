@@ -56,6 +56,26 @@ public class PlayerData extends AbstractFile {
         }
         return (int)config.get((player.getUniqueId().toString()+"-TIMER-"));}
 
+    public void setLastMove(Player player){
+            config.set((player.getUniqueId().toString()+"-AFK-"), getTimer(player));
+    }
+
+    public int getLastMove(Player player){
+        if (config.get((player.getUniqueId().toString()+"-AFK-"))==null){ setLastMove(player);
+        }
+        return (int)config.get((player.getUniqueId().toString()+"-AFK-"));}
+
+    public void makeAfk(Player player,Boolean bool){
+        config.set((player.getUniqueId().toString()+"-AFKBOOL-"), bool);
+    }
+    public boolean getAfkBool(Player player){
+        if (config.get(player.getUniqueId().toString()+"-AFKBOOL-")==null){
+            makeAfk(player,false);
+        }
+        return (boolean) config.get(player.getUniqueId().toString()+"-AFKBOOL-");
+    }
+
+
     public void setPrefix(Player player,String args){
             config.set((player.getUniqueId().toString()+"-PREFIX-"), args);
     }

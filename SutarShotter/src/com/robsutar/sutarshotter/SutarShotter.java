@@ -22,12 +22,20 @@ public class SutarShotter extends JavaPlugin {
     public static String BADCRETODS = ChatColor.RED + " saving files... Robsutar send a bye";
     public static String ERROR = ChatColor.RED+"Ocorreu um erro, lamentamos";
 
+    private static int afkTimer = 1112;
+
     @Override
     public void onEnable() {
         if (!getDataFolder().exists()){
             getDataFolder().mkdirs();
         }
         playerData = new PlayerData(this);
+
+        //setConfig
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
+        afkTimer = getConfig().getInt("AfkTimer");
 
         SCommands commands = new SCommands();
         getCommand("pos1").setExecutor(commands);
@@ -41,6 +49,10 @@ public class SutarShotter extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerTimer(),this);
 
         getServer().getConsoleSender().sendMessage(SUTARSHOTTER+GOODCREDITS);
+    }
+
+    public static int getAfkTimer(){
+        return afkTimer;
     }
 
     @Override
