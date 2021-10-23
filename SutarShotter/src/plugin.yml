@@ -1,0 +1,20 @@
+name: SutarShotter
+version: 1.0
+author: Robsutar
+main: com.robsutar.sutarshotter.SutarShotter
+api-version: 1.14
+commands:
+  pos1:
+    description: set pos1
+    usage: /<command>
+  pos2:
+    description: set pos2
+    usage: /<command>
+  sreplace:
+    description: replaces slabs
+    usage: /<command>
+  ssetprefix:
+    description: set a tag
+    usage: /<command>
+  ssave:
+    usage: /<command>
